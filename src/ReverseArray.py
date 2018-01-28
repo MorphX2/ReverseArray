@@ -2,15 +2,15 @@ def findSizeOfArray(inputArray):
     size = len(array)
     return size
 
-def removeElement(searchArray, numberOfElements):
-    elementCount = 0
-    while elementCount < numberOfElements:
-        print("Removing %d from array..." % searchArray[elementCount])
-        del searchArray[-1]
-
-        if elementCount == numberOfElements:
-            break
-        elementCount = elementCount + 1
+def removeElement(searchArray, numberOfElements, searchSize):
+    deleteStartingPoint = searchSize - 1
+    print("Last element in array: " + str(searchArray[4]))
+    print("Starting at element index %d" % deleteStartingPoint)
+    print("Wanting to delete: %d" % numberOfElements)
+    while deleteStartingPoint >= numberOfElements - 1:
+        print("Delete element at index %d..." % deleteStartingPoint)
+        del searchArray[deleteStartingPoint]
+        deleteStartingPoint = deleteStartingPoint - 1
 
 array = [ 5, 4, 3, 6, 3 ]
 sortedArray = []
@@ -27,5 +27,5 @@ while counter < arraySize:
     counter = counter + 1
 
 print("Removing elements")
-removeElement(array, numberOfElementsToRemove)
+removeElement(array, numberOfElementsToRemove, arraySize)
 print("Array after %d elements have been removed..." % (numberOfElementsToRemove) + str(array))
